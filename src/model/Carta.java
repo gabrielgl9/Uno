@@ -79,11 +79,12 @@ public abstract class Carta {
     public int aplicarEfeito(ArrayList<Jogador> jogadores, int index)
     {
         if (this.getEfeito().equals("inverte")) {
-            Collections.reverse(jogadores);    
+            Collections.reverse(jogadores);
+            return index == 0 ? jogadores.size() - 1 : index - 1;
         }
         
         if (this.getEfeito().equals("bloqueia")) {
-            return index == jogadores.size() ? 0 : ++index;
+            return index == jogadores.size() - 1 ? 0 : ++index;
         }
         
         return index;
